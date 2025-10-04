@@ -1,72 +1,162 @@
-### Walmart_Sales_Data_Analysis_with-SQL
-About
-We are analysing Walmart's sales data to identify high-performing branches and products, analyze the sales patterns of various products, and understand customer behavior. The primary objective is to enhance and optimize sales strategies. The dataset utilized in this project is sourced from the Kaggle Walmart Sales Forecasting Competition.
+# 🏪 Walmart Sales Data Analysis using SQL
 
-Purposes of the Project
-The main goal of this project is to calculate KPI(Key Performance Indices) in walmart sales and to evaluate sales data,exploring the various factors that influence sales across different branches..
+## 📘 About
+This project analyzes **Walmart's sales data** to identify **high-performing branches**, **top-selling products**, and understand **customer purchasing behavior**.  
+The goal is to extract **key performance insights (KPIs)** that can help Walmart **optimize sales strategies** and improve profitability.
 
-About Data
-This project's data was obtained from the Kaggle Walmart Sales Forecasting Competition and it encompasses sales transactions from three Walmart branches situated in Mandalay, Yangon, and Naypyitaw, respectively. The data contains 17 columns and 1000 rows:
+The dataset is sourced from the **Kaggle Walmart Sales Forecasting Competition**, containing sales transactions from Walmart branches located in **Mandalay**, **Yangon**, and **Naypyitaw**.
 
-Data set Overview
-invoice_id	Unique identifier for each sales transaction
-branch	Store branch where the sale occurred (e.g., A, B, C).
-city	The city where the branch is located
-customer_type	Whether the customer is a Member (loyalty program) or Normal
-gender	Gender of the customer (Male / Female).
-product_line	The category of the product sold (e.g., Health and beauty, Electronic accessories).
-unit_price	Price of one unit of the product.
-quantity	Number of units purchased.
-Tax 5%	The tax amount applied (5% of the cost of goods sold).
-total	The total cost of the purchase	
-date	The date on which the purchase was made	
-time	The time at which the purchase was made	
-payment	The total amount paid	
-cogs	Cost Of Goods sold	
-gross_margin_pct	Profit margin percentage
-gross_income	Gross profit from the sale.
-rating	Customer satisfaction rating (scale of 1 to 10).
+---
 
-Analysis List:
-Product Analysis
-Perform an analysis on the data to gain insights into different product lines, determine the top-performing product lines, and identify areas for improvement in other product lines.
+## 🎯 Purpose of the Project
+The primary objective is to:
+- Calculate **Key Performance Indicators (KPIs)** in Walmart’s sales.
+- Explore factors influencing sales across different branches.
+- Evaluate customer patterns, product performance, and payment preferences.
+- Provide data-driven recommendations for improving business performance.
 
-Sales Analysis
-The objective of this analysis is to address the inquiry regarding the sales trends of the product. The outcomes of this analysis can assist in evaluating the efficiency of each applied sales strategy in the business and determining necessary modifications to increase sales.
+---
 
-Customer Analysis
-This analysis is focused on identifying various customer segments, understanding purchasing trends, and evaluating the profitability associated with each of these customer segments.
+## 🧾 Dataset Information
+**Database Name:** `conn_ex`  
+**Table Name:** `walmartsalesdata`  
+**Records:** ~1,000+ transactions (sample below)
 
-Business Questions to Answer
-Generic Questions
-How many distinct cities are present in the dataset?
-In which city is each branch situated?
-Product Analysis
-How many distinct product lines are there in the dataset?
-What is the most common payment method?
-What is the most selling product line?
-What is the total revenue by month?
-Which month recorded the highest Cost of Goods Sold (COGS)?
-Which product line generated the highest revenue?
-Which city has the highest revenue?
-Which product line incurred the highest VAT?
-Retrieve each product line and add a column product_category, indicating 'Good' or 'Bad,' based on whether its sales are above the average.
-Which branch sold more products than average product sold?
-What is the most common product line by gender?
-What is the average rating of each product line?
-Sales Analysis
-Number of sales made in each time of the day per weekday
-Identify the customer type that generates the highest revenue.
-Which city has the largest tax percent/ VAT (Value Added Tax)?
-Which customer type pays the most VAT?
-Customer Analysis
-How many unique customer types does the data have?
-How many unique payment methods does the data have?
-Which is the most common customer type?
-Which customer type buys the most?
-What is the gender of most of the customers?
-What is the gender distribution per branch?
-Which time of the day do customers give most ratings?
-Which time of the day do customers give most ratings per branch?
-Which day of the week has the best avg ratings?
-Which day of the week has the best average ratings per branch?
+| Column Name | Description |
+|--------------|-------------|
+| `Invoice_ID` | Unique identifier for each transaction |
+| `Branch` | Branch code (A, B, C) |
+| `City` | City where the branch is located |
+| `Customer_type` | Type of customer (Member or Normal) |
+| `Gender` | Gender of customer |
+| `Product_line` | Product category sold |
+| `Unit_price` | Price per unit |
+| `Quantity` | Number of items purchased |
+| `Tax 5%` | 5% tax applied |
+| `Total` | Total amount (including tax) |
+| `Date` | Transaction date |
+| `Time` | Transaction time |
+| `Payment` | Payment method (Cash, E-wallet, Credit card) |
+| `cogs` | Cost of goods sold |
+| `gross_margin_percentage` | Gross margin percentage |
+| `gross_income` | Gross profit |
+| `Rating` | Customer satisfaction rating |
+
+---
+
+## 🔍 Analysis Performed
+
+### 🧩 1. Product Analysis
+- Identify top-performing product lines.
+- Compare sales volume and profitability across product categories.
+- Find areas needing improvement based on sales and ratings.
+
+### 💰 2. Sales Analysis
+- Analyze sales trends over time.
+- Compare revenue, profit, and total transactions.
+- Measure sales performance by city, branch, and month.
+
+### 👥 3. Customer Analysis
+- Segment customers by type and gender.
+- Analyze purchase patterns and ratings.
+- Evaluate customer value and profitability contribution.
+
+---
+
+## 🧠 Business Questions & SQL Queries
+
+1. Total number of transactions in the dataset.  
+2. Total Revenue and Total Income.  
+3. Total number of items sold.  
+4. Average revenue per transaction.  
+5. Average customer rating across all transactions.  
+6. Total sales by each branch and city.  
+7. Total sales and profit per product line.  
+8. Sales contribution by each payment method.  
+9. Sales and profit trends for **January, February, March**.  
+10. Comparison of **weekend vs weekday** sales.  
+11. Identification of **peak sales hours**.  
+12. Total gross income by each branch.  
+13. Top 5 highest sales transactions.  
+14. Total sales and % contribution of each customer type.  
+15. Sales and profit comparison by gender.  
+
+---
+
+## 📊 Key Insights
+
+### 💵 Revenue & Transactions
+- **Naypyitaw** recorded the **highest total revenue**, followed by **Yangon** and **Mandalay**.  
+- **Average revenue per transaction** ≈ **USD 322.97**.  
+- **Female customers** contributed more to overall sales and profit.  
+
+### 🏬 Branch Performance
+- **Branch C** generated the **highest sales**, while **Branch B** had the **lowest**.  
+
+### 🛍️ Product Lines
+- **Food & Beverages** and **Sports & Travel** lead in total sales.  
+- These lines also received **higher average ratings**.  
+
+### 👨‍👩‍👧 Customer Types
+- **Members** spend slightly more per transaction than Normal customers.  
+- Members also **rate their experience higher** on average.  
+
+### 💳 Payment Methods
+- **Cash** is the most popular payment method, followed by **E-wallet** and **Credit Card**.  
+- Indicates **dominance of cash**, but **digital payment adoption is growing**.  
+
+### ⏰ Time-based Trends
+- **Peak sales hours:** 1:00 PM to 7:00 PM.  
+- **Weekdays** outperform weekends in total sales.  
+
+### ⭐ Customer Satisfaction
+- Average customer rating: **6.9 – 7.5**.  
+- **Mandalay** shows slightly lower ratings than other branches.  
+
+---
+
+## 📈 Conclusion
+
+- **Naypyitaw** and **Branch C** are the **top revenue contributors**.  
+- **Food & Beverages** and **Sports & Travel** are the most profitable categories.  
+- **Cash** remains dominant, but encouraging **E-wallet/Credit Card** can improve convenience.  
+- **January** had the **highest monthly sales**, followed by **March** and **February** — indicating **seasonal purchasing behavior**.  
+- Walmart can boost underperforming branches through:
+  - Targeted marketing
+  - Discounts and promotions
+  - Focusing on trending products and customer preferences  
+
+> 📊 By implementing these insights, Walmart can **increase market share, enhance customer satisfaction**, and **maximize profit**.
+
+---
+
+## 🧰 Tools & Technologies Used
+- **SQL (MySQL Workbench)** – for querying and analysis  
+- **Database:** `conn_ex`  
+- **Excel** – for dataset preview and data validation  
+- **Kaggle Dataset:** Walmart Sales Forecasting Competition  
+
+---
+
+## 🚀 How to Run This Project
+
+1. Install **MySQL Workbench** or any preferred SQL IDE.  
+2. Create the database and table:
+   ```sql
+   CREATE DATABASE conn_ex;
+   USE conn_ex;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
